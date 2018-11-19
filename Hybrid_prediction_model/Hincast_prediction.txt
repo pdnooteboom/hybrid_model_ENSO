@@ -1,0 +1,26 @@
+Make the hindcast prediction
+
+Data:
+- The monthly warm water volume (WWV) can be downloaded from https://www.pmel.noaa.gov/elnino/upper-ocean-heat-content-and-enso
+- The monthly NINO3.4 index can be downloaded from: https://www.esrl.noaa.gov/psd/data/correlation/nina34.data
+
+- To calculate c2 one needs weekly Sea Surface Height (SSH) from 1979 to 2014 of the ORAP5.0: 
+http://marine.copernicus.eu/services-portfolio/access-to-products/?option=com_csw&view=details&product_id=GLOBAL_REANALYSIS_PHYS_001_017
+
+- For the second principal component of the residual of the wind stress (PC2) one needs Sea Surface Temperature (SST) and 10m zonal wind.
+For SST the HadISST dataset is used: https://www.metoffice.gov.uk/hadobs/hadisst/data/download.html
+For the zonal wind of NCEP/NCAR: https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.derived.surfaceflux.html
+
+The data needed for c2 and PC2 caluculation is needed in this domain: from 140 to 280 degrees East and -20 to 20 degrees north.
+
+- The predictions are compared to the CFSv2 ensemble predictions of NCEP: http://www.cpc.ncep.noaa.gov/products/people/wwang/cfsv2fcst/CFSv2SST8210.html
+http://www.cpc.ncep.noaa.gov/products/people/wwang/cfs_assessment/CFS_assessment.html
+
+
+Method
+
+1. The attributes c2 and PC2 are calculated in "Hybrid_prediction_model/ClimateLearn/variables/".
+2. "Hybrid_prediction_model/ClimateLearn/test_IMAU/ARIMA_ANN_monthly.py" makes the prediction in five parts. First it imports packages and defines functions. Second the used hyperparameters and attributes are defined. Third it loads the attributes from the "input" folder. It results in a dictionary "dic", which contains the attributes which must be of same length and defined for the same time period and temporal resolution. Fourth the hybrid model is run for 84 different ANN structures. Make sure in this part that the paths in the imported "el_nino_weka.py" point to the right location on your computer. The fifth and final part of the script plots (a) the ensemble mean of the complete ensemble of size 84, (b) the best prediction of the ensemble, (c) the ensemble mean of the ensemble of size 10 with the 10 best predictions. 
+
+"ARIMA_ANN_monthly.py" does the same as "ARIMA_ANN_monthly.py", but also for different p, d, q parameters. "cross_validation_monthly.py" performs the cross validation method. The CFSv2 ensmble predictions are opened and saved in "Hybrid_prediction_model/ClimateLearn/plotML/leadtimedata/", to compare with the hybrid model predictions.
+  

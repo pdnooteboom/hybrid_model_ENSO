@@ -1,0 +1,28 @@
+Make a recent prediction
+
+Data:
+- The monthly warm water volume (WWV) can be downloaded from https://www.pmel.noaa.gov/elnino/upper-ocean-heat-content-and-enso
+- The monthly NINO3.4 index can be downloaded from: https://www.esrl.noaa.gov/psd/data/correlation/nina34.data
+
+- To calculate c2 one needs at least weekly Sea Surface Height (SSH), which goes up to present. From 1993 this can be found here: http://marine.copernicus.eu/services-portfolio/access-to-products/?option=com_csw&view=details&product_id=SEALEVEL_GLO_PHY_L4_REP_OBSERVATIONS_008_047
+and 2017 up to present:
+http://marine.copernicus.eu/services-portfolio/access-to-products/?option=com_csw&view=details&product_id=SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046
+
+- For the second principal component of the residual of the wind stress (PC2) one needs Sea Surface Temperature (SST) and 10m zonal wind.
+For SST the HadISST dataset is used: https://www.metoffice.gov.uk/hadobs/hadisst/data/download.html
+For the zonal wind of NCEP/NCAR: https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.derived.surfaceflux.html
+
+The data needed for c2 and PC2 caluculation is needed in this domain: from 140 to 280 degrees East and -20 to 20 degrees north.
+
+- The predictions are compared to the CFSv2 ensemble predictions of NCEP: http://www.cpc.ncep.noaa.gov/products/people/wwang/cfsv2fcst/CFSv2SST8210.html
+
+
+Method
+ "Hybrid_prediction_model/predictions_may/1993-may" is for the prediction making use of c2, which requires high temporal resolution SSH data which is available for a shorter time period only.
+"Hybrid_prediction_model/predictions_may/1980-may" does the same, but is for the predictions with WWV in stead of c2. Here the time series are from 1980 up to may 2017.
+The current code makes a prediction from May. For a new prediction, the data must be added up to present.
+
+1. Calculate the attributes c2 and PC2 for the whole available time interval in "Hybrid_prediction_model/predictions_may/1993-may/PC2.py" and "Hybrid_prediction_model/predictions_may/1993-may/c2.py". These scripts save c2 and PC2 as '.npy' file in "Hybrid_prediction_model/predictions_may/1993-may/".
+2. The script "Hybrid_prediction_model/predictions_may/1993-may/prediction.py" loads the attributes to make a prediction in the future. 
+This running prediction at a certain lead time is saved as '.npy' file in "Hybrid_prediction_model/predictions_may/1993-may/".
+3. "C:/Users/User/Documents/Thesis/Hybrid_prediction_model/predictions_may/plotting" contains and plots the running predictions at different lead times and the CFSv2 ensemble prediction. "open_NCEPpred.py" opens the CFSv2 predictions in the ".csv" files and saves them in the right format. "subplot_inclncep_monthsx.py" plots all predictions. A "plotly" account is needed in order for the plot to work.  

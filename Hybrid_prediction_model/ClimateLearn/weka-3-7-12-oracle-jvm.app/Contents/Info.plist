@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>CFBundleDevelopmentRegion</key>
+<string>English</string>
+<key>CFBundleExecutable</key>
+<string>JavaAppLauncher</string>
+<key>CFBundleIconFile</key>
+<string>weka_icon_new.icns</string>
+<key>CFBundleIdentifier</key>
+<string>nz.ac.waikato.cms.Weka</string>
+<key>CFBundleDisplayName</key>
+<string>Weka-3-7-12</string>
+<key>CFBundleInfoDictionaryVersion</key>
+<string>6.0</string>
+<key>CFBundleName</key>
+<string>weka-3-7-12-oracle-jvm</string>
+<key>CFBundlePackageType</key>
+<string>APPL</string>
+<key>CFBundleShortVersionString</key>
+<string>3.7.12</string>
+<key>CFBundleSignature</key>
+<string>????</string>
+<key>CFBundleVersion</key>
+<string>1</string>
+<key>NSHumanReadableCopyright</key>
+<string></string>
+<key>JVMRuntime</key>
+<string>jdk1.7.0_71.jdk</string>
+<key>JVMMainClassName</key>
+<string>weka.gui.GUIChooser</string>
+<key>JVMOptions</key>
+<array>
+<string>-Xmx1024M</string>
+</array>
+<key>JVMArguments</key>
+<array>
+</array>
+</dict>
+</plist>
+
