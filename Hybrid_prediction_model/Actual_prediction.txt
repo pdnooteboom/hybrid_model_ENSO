@@ -10,7 +10,7 @@ http://marine.copernicus.eu/services-portfolio/access-to-products/?option=com_cs
 
 - For the second principal component of the residual of the wind stress (PC2) one needs Sea Surface Temperature (SST) and 10m zonal wind.
 For SST the HadISST dataset is used: https://www.metoffice.gov.uk/hadobs/hadisst/data/download.html
-For the zonal wind of NCEP/NCAR: https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.derived.surfaceflux.html
+For the zonal wind of NCEP/NCAR: https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.derived.surface.html 
 
 The data needed for c2 and PC2 caluculation is needed in this domain: from 140 to 280 degrees East and -20 to 20 degrees north.
 
