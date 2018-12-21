@@ -2,7 +2,7 @@ Make the hindcast prediction
 
 Data:
 - The monthly warm water volume (WWV) can be downloaded from https://www.pmel.noaa.gov/elnino/upper-ocean-heat-content-and-enso
-- The monthly NINO3.4 index can be downloaded from: https://www.esrl.noaa.gov/psd/data/correlation/nina34.data
+- The monthly NINO3.4 index can be downloaded from: https://www.esrl.noaa.gov/psd/data/correlation/nina34.data or http://www.cpc.ncep.noaa.gov/data/indices/ersst3b.nino.mth.81-10.ascii
 
 - To calculate c2 one needs weekly Sea Surface Height (SSH) from 1979 to 2014 of the ORAP5.0: 
 http://marine.copernicus.eu/services-portfolio/access-to-products/?option=com_csw&view=details&product_id=GLOBAL_REANALYSIS_PHYS_001_017

@@ -2,7 +2,7 @@ Make a recent prediction
 
 Data:
 - The monthly warm water volume (WWV) can be downloaded from https://www.pmel.noaa.gov/elnino/upper-ocean-heat-content-and-enso
-- The monthly NINO3.4 index can be downloaded from: https://www.esrl.noaa.gov/psd/data/correlation/nina34.data
+- The monthly NINO3.4 index can be downloaded from: https://www.esrl.noaa.gov/psd/gcos_wgsp/Timeseries/Data/nino34.long.anom.data 
 
 - To calculate c2 one needs at least weekly Sea Surface Height (SSH), which goes up to present. From 1993 this can be found here: http://marine.copernicus.eu/services-portfolio/access-to-products/?option=com_csw&view=details&product_id=SEALEVEL_GLO_PHY_L4_REP_OBSERVATIONS_008_047
 and 2017 up to present:
