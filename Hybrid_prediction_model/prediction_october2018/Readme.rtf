@@ -1,0 +1,39 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww43400\viewh7920\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Make a prediction from 10-2018\
+\
+Data:\
+- The monthly warm water volume (WWV) can be downloaded from https://www.pmel.noaa.gov/elnino/upper-ocean-heat-content-and-enso\
+- The monthly NINO3.4 index can be downloaded from: https://www.esrl.noaa.gov/psd/gcos_wgsp/Timeseries/Data/nino34.long.anom.data \
+\
+- To calculate c2 one needs at least weekly Sea Surface Height (SSH), which goes up to present. From 1993 this can be found here: http://marine.copernicus.eu/services-portfolio/access-to-products/?option=com_csw&view=details&product_id=SEALEVEL_GLO_PHY_L4_REP_OBSERVATIONS_008_047\
+and 2017 up to present:\
+http://marine.copernicus.eu/services-portfolio/access-to-products/?option=com_csw&view=details&product_id=SEALEVEL_GLO_PHY_L4_NRT_OBSERVATIONS_008_046\
+This data can also be downloaded with the python script \'92download_DUACSdata.py\'92 :\
+1. Register at the Copernicus account and add the username and password in the script\
+2. Put \'91from2015\'92 to False to download al the SSH data up to 2017\
+3. Put \'91from2015\'92 to True to download the SSH data from 2017 up to the date in line 30\
+\
+- For the second principal component of the residual of the wind stress (PC2) one needs Sea Surface Temperature (SST) and 10m zonal wind.\
+For SST the HadISST dataset is used: https://www.metoffice.gov.uk/hadobs/hadisst/data/download.html\
+For the zonal wind of NCEP/NCAR: https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.derived.surface.html \
+\
+The data needed for c2 and PC2 caluculation is needed in this domain: from 140 to 280 degrees East and -20 to 20 degrees north.\
+\
+- The predictions are compared to the CFSv2 ensemble predictions of NCEP: http://www.cpc.ncep.noaa.gov/products/people/wwang/cfsv2fcst/CFSv2SST8210.html\
+\
+\
+Method\
+ "Hybrid_prediction_model/predictions_october/1993-may" is for the prediction making use of c2, which requires high temporal resolution SSH data which is available for a shorter time period only.\
+"Hybrid_prediction_model/predictions_october/1980-may" does the same, but is for the predictions with WWV in stead of c2. Here the time series are from 1980 up to may 2017.\
+The current code makes a prediction from May. For a new prediction, the data must be added up to present.\
+\
+1. Calculate the attributes c2 and PC2 for the whole available time interval in "Hybrid_prediction_model/predictions_october/1993-may/PC2.py" and "Hybrid_prediction_model/predictions_october//1993-may/c2.py". These scripts save c2 and PC2 as '.npy' file in "Hybrid_prediction_model/predictions_october/from1993/input\'93.\
+2. The script "Hybrid_prediction_model/predictions_october/from1993/prediction.py" loads the attributes to make a prediction in the future. \
+This running prediction at a certain lead time is saved as '.npy' file in "Hybrid_prediction_model/predictions_october/from1993/predictions/\'93.\
+  }
